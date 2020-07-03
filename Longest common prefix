@@ -1,0 +1,29 @@
+//credit:Akhil
+string Solution::longestCommonPrefix(vector<string> &A) {
+
+    if (A.size() == 0) return "";
+
+    string x="";
+//     x.push_back(A[0][1]);
+
+//   return x;
+    bool f=0;//flag to not check ahead
+    for(int i=0,j=0; j<A[0].size()&&f==0;){
+        x.push_back(A[i][j]);
+        while(i<A.size()){
+            if(j<A[i].size() && A[i][j]==x[j])
+                    i++;
+            else
+
+                {
+                    x.pop_back();
+                    f=1;
+                    break;
+                }
+        }
+        i=0;
+        j++;  
+    }    
+    return x;
+
+}
